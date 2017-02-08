@@ -3,6 +3,8 @@ defmodule HedwigBrain.Mixfile do
 
   def project do
     [app: :hedwig_brain,
+     description: description(),
+     package: package(),
      version: "0.1.0",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
@@ -18,6 +20,23 @@ defmodule HedwigBrain.Mixfile do
     [extra_applications: [:logger]]
   end
 
+  defp description do
+    """
+    Simple key-value persistence for Hedwig responders, `Hedwig.Brain` stores lists of arbitrary terms under binary keys.
+    """
+  end
+
+  defp package do
+    [
+        maintainers: ["Steve Grossi"],
+        licenses: ["MIT"],
+        links: %{
+          "GitHub" => "https://github.com/stevegrossi/hedwig_brain",
+          "Docs" => "https://hexdocs.pm/hedwig_brain/"
+        }
+      ]
+  end
+
   # Dependencies can be Hex packages:
   #
   #   {:my_dep, "~> 0.3.0"}
@@ -30,6 +49,8 @@ defmodule HedwigBrain.Mixfile do
   defp deps do
     [
       {:redix, "~> 0.4"},
+      {:ex_doc, "~> 0.14", only: :dev},
+      {:earmark, "~> 1.1", only: :dev},
       {:credo, "~> 0.4", only: [:dev, :test]},
       {:mix_test_watch, "~> 0.2", only: :dev}
     ]
