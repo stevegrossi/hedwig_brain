@@ -38,17 +38,17 @@ iex> Brain.at_index("people", 0)
 
 ## Installation
 
-Until this library is made available on Hex.pm, you’ll need to load it from Github:
+Add `hedwig_brain` as a dependency in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:hedwig_brain, github: "stevegrossi/hedwig_brain"}
+    {:hedwig_brain, "~> 0.1"}
   ]
 end
 ```
 
-Then, you can start the `Brain` process manually:
+And run `mix deps.get`. Then, start the `Brain` process manually:
 
 ```elixir
 {:ok, pid} = Hedwig.Brain.start_link
